@@ -254,9 +254,9 @@ def build_google_fonts_url(font_general: str, font_cards: str) -> str:
     font_cards_encoded = font_cards.replace(' ', '+')
     
     # Build URL with optimized weights/styles
-    # font-general: Full range for general UI (italics and weights 100-900)
+    # font-general: italics and weights 100-900)
     # font-cards: Only weights 400 (regular) and 700 (bold) are used in card rendering
-    url = f"https://fonts.googleapis.com/css2?family={font_general_encoded}:ital,wght@0,100..900;1,100..900&family={font_cards_encoded}:wght@400;700&display=swap"
+    url = f"https://fonts.googleapis.com/css2?family={font_general_encoded}:ital,wght@0,200;0,400;1,400&family={font_cards_encoded}:wght@400;700&display=swap"
     return url
 
 
