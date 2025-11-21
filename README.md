@@ -14,13 +14,14 @@ The easiest way to use this project is to **fork** the repository and configure 
 
 1. **Enable GitHub Pages**: Go to your repository Settings → Pages
 2. **Set source**: Select "GitHub Actions" as the publishing source
-3. **Push changes**: The workflow will automatically build and deploy your site when you push to the `master` branch
+3. **Set deployment branch**: Go to Settings → Environments → Deployment branches → Edit pattern to `public`
+4. **Push changes**: The workflow will automatically build and test your site when you push to the `public` branch
+
+For detailed instructions, see the [GitHub Pages documentation on publishing with a custom GitHub Actions workflow](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-with-a-custom-github-actions-workflow).
 
 The site will be available at:
 - `https://<your-username>.github.io/` if your repository is named `<your-username>.github.io`
 - `https://<your-username>.github.io/<repository-name>/` otherwise
-
-For detailed instructions, see the [GitHub Pages documentation on publishing with a custom GitHub Actions workflow](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-with-a-custom-github-actions-workflow).
 
 ### Customizing your fork
 
@@ -68,9 +69,9 @@ Each project article is converted into a high-dimensional semantic embedding usi
 
 ### Dimensionality Reduction with PCA
 
-The high-dimensional embeddings (typically 384 or 768 dimensions) are reduced to 3D coordinates using Principal Component Analysis (PCA). PCA finds the principal components that capture the most variance in the data, allowing the semantic relationships to be visualized in 3D space while preserving as much information as possible.
+The high-dimensional embeddings (typically 384 or 768 dimensions) are reduced to 3D coordinates using [Principal Component Analysis](https://en.wikipedia.org/wiki/Principal_component_analysis). PCA finds the principal components that capture the most variance in the data, allowing the semantic relationships to be visualized in 3D space while preserving as much information as possible.
 
-While other dimensionality reduction methods such as UMAP and t-SNE are also available, PCA tends to produce well-defined clusters that work better for visualizing project relationships in this use case.
+While other dimensionality reduction methods such as [UMAP](https://umap-learn.readthedocs.io/en/latest/) and [t-SNE](https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding) are also available, PCA tends to produce well-defined clusters that work better for visualizing project relationships in this use case.
 
 
 ### Positioning Points in Space

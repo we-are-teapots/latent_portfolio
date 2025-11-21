@@ -19,8 +19,9 @@ except ImportError:
     import tomli as tomllib  # Python < 3.11
 
 # Import process module
-from .process import main as process_main
-from .load import load_markdown_files
+from latent_portfolio.process import main as process_main
+from latent_portfolio.load import load_markdown_files
+from latent_portfolio import __version__
 
 
 def load_config(config_path: Path) -> Dict[str, Any]:
@@ -210,7 +211,7 @@ def render_templates(src_dir: Path, public_dir: Path, config: Dict[str, Any],
     # Render index.html
     template = env.get_template('index.html')
     page_url = apply_base_url('index.html', base_url) if base_url else None
-    output = template.render(config=config, page_url=page_url)
+    output = template.render(config=config, page_url=page_url, version=__version__)
     
     output_file = public_dir / 'index.html'
     output_file.write_text(output, encoding='utf-8')
@@ -219,7 +220,7 @@ def render_templates(src_dir: Path, public_dir: Path, config: Dict[str, Any],
     # Render home.html
     template = env.get_template('home.html')
     page_url = apply_base_url('home.html', base_url) if base_url else None
-    output = template.render(config=config, page_url=page_url)
+    output = template.render(config=config, page_url=page_url, version=__version__)
     
     output_file = public_dir / 'home.html'
     output_file.write_text(output, encoding='utf-8')
@@ -228,7 +229,7 @@ def render_templates(src_dir: Path, public_dir: Path, config: Dict[str, Any],
     # Render 404.html
     template = env.get_template('404.html')
     page_url = apply_base_url('404.html', base_url) if base_url else None
-    output = template.render(config=config, page_url=page_url)
+    output = template.render(config=config, page_url=page_url, version=__version__)
     
     output_file = public_dir / '404.html'
     output_file.write_text(output, encoding='utf-8')
@@ -651,7 +652,8 @@ def render_article_pages(src_dir: Path, public_dir: Path, config: Dict[str, Any]
             article_description=article.get('description', ''),
             article_image=article_image,
             article_id=article.get('id'),
-            page_url=page_url
+            page_url=page_url,
+            version=__version__
         )
         
         # Save rendered HTML file
@@ -688,6 +690,7 @@ def build(
         base_url: Base URL override (default: None, uses config file value)
         thumbnail_res: Thumbnail resolution in format WIDTHxHEIGHT (default: '400x210')
     """
+    print(f"Latent Portfolio version: {__version__}")
     # Define paths relative to this file
     latent_portfolio_dir = Path(__file__).parent
     project_root = latent_portfolio_dir.parent
@@ -823,6 +826,7 @@ def build(
             render_article_pages(src_dir, output_path, config, base_url, articles_data, assets_version)
             
             print("\n✅ Build complete!")
+            print(f"   Latent Portfolio version: {__version__}")
             print(f"📦 Output directory: {output_path}")
             if embeddings_filename:
                 print(f"📊 Embeddings file: {embeddings_filename}")
@@ -843,6 +847,7 @@ def build(
         # Render templates even in copy-only mode (for assets version)
         render_templates(src_dir, output_path, config, assets_version)
         print("✅ Build complete (source files only)")
+        print(f"  Latent Portfolio version: {__version__}")
         print(f"📦 Output directory: {output_path}")
         print("\n💡 To generate embeddings, run:")
         print(f"   python -m latent_portfolio.process -i {input_folder} -o {output_path} --methods {' '.join(methods)} --dimensions {' '.join(map(str, dimensions))} -s")

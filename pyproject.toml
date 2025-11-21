@@ -2,9 +2,12 @@
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
+[tool.setuptools.dynamic]
+version = {attr = "latent_portfolio.__version__"}
+
 [project]
 name = "latent_portfolio"
-version = "1.0.4"
+dynamic = ["version"]
 description = "A module to publish a list of projects as web visualization of their semantic latent space"
 authors = [
     {name = "Bruno Laurencich"}
