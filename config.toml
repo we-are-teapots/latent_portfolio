@@ -4,9 +4,9 @@ title = "We are teapots"
 copyright = "Some rights reserved"
 
 [style]
-font-general = "Noto Sans"
-font-cards = "Space Grotesk"
-bg_pattern = "diagonal.png"
+font-general = "Neuton"
+font-cards = "Quantico"
+bg_pattern = "wild-sea.png"
 
 [meta]
 default_description = "Explore the latent space of my projects through an interactive 3D visualization. Discover connections between technologies, ideas, and implementations in an immersive experience."
