@@ -1,0 +1,91 @@
+[site]
+base_url = ""
+title = "We are teapots"
+copyright = "Some rights reserved"
+
+[style]
+font-general = "Noto Sans"
+font-cards = "Space Grotesk"
+bg_pattern = "diagonal.png"
+
+[meta]
+default_description = "Explore the latent space of my projects through an interactive 3D visualization. Discover connections between technologies, ideas, and implementations in an immersive experience."
+
+[contact]
+github = "https://github.com/yourprofile"
+linkedin = "https://linkedin.com/in/yourprofile"
+email = "your.email@example.com"
+
+[bloom]
+enabled = true
+strength = 0.8
+radius = 0.4
+threshold = 0.5
+
+[startup_modal]
+enabled = true
+image = "girl.jpeg"
+title = "Hi! We are teapots"
+subtitle = "Welcome to my 3D Portfolio"
+description = [
+    "I'm using this neat latent space visualization tool, [check it out!](https://github.com/daylanKifky/latent_portfolio)",
+    "lorem ipsum dolor sit amet, _consectetur adipiscing elit_. Sed do **eiusmod tempor incididunt** ut labore et dolore magna aliqua."
+]
+button_text = "Start Exploring"
+plain_view_button_text = "Go to the plain view"
+
+[home_page]
+cta_description = "Explore the latent space of my projects through an interactive 3D visualization. Discover connections between technologies, ideas, and implementations in an immersive experience."
+cta_button_text = "Explore the projects in 3D space"
+plain_view_intro = "You can also use the plain view to see the projects"
+plain_view_button_text = "View Projects List"
+
+[weights]
+# Weights for embedding fields (only non-zero weights are used)
+title = 0.1
+technologies = 0.5
+description = 1.2
+tags = 1
+
+[rotation]
+# Euler rotation angles in degrees for 3D reductions (X, Y, Z axes)
+# Applied after dimensionality reduction, only for 3D outputs
+x = 95
+y = 0
+z = 0
+
+[js-conf]
+# JavaScript configuration overrides
+# Uncomment and modify values as needed
+# REDUCTION_METHOD = "pca"
+SHOW_AXES = true
+# FXAA_RESOLUTION = 0.7
+SHOW_THREE_STATS = true
+# CAMERA_ANIMATION_DURATION = 1000
+# HOVER_CHECK_INTERVAL = 100
+# BLOOM_ENABLED = true
+# FONT_NAME = "Space Grotesk"
+# CARD_WINDOW_SCALE = 0.5
+# CARD_BOTTOM_PADDING = 0.2
+# SM_CARD_OFFSET_X = -0.4
+# SM_CARD_OFFSET_Y = -0.25
+# SM_CARD_OFFSET_Z = 0
+# SM_CARD_W = 300
+# SM_CARD_H = 400
+# CARD_TITLE_LENGTH = 100
+# CARD_TITLE_LINES = 2
+# CARD_CONTENT_LINES = 3
+# CARD_CONTENT_LENGTH = 300
+# READ_MORE_TEXT = "see more"
+# INITIAL_DELAY = 2000
+# AUTO_PLAY_DELAY = 8000
+# UPDATE_INTERVAL = 12000
+# MAX_HISTORY_SIZE = 5
+# SIM_TO_SCALE_POW = 0.3
+# SIM_TO_SCALE_MIN = 0.5
+# SIM_TO_SCALE_MAX = 1.5
+# SINGLE_TARGET_MULTIPLIER = 1.5
+# MULTI_TARGET_MULTIPLIER = 1.1
+# DEBUG_VIEW_DIRECTION = false
+# DEBUG_CARD_CORNER = false
+
